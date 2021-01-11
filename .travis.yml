@@ -1,0 +1,31 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules/
+    - ~/.npm
+
+node_js:
+  - '14'
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  email:
+    recipients:
+      - ulzahk@gmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip_cleanup: true
+  keep_history: true
+  api_key: d7452a44-a4b2-4e5f-80d8-9053fc720716
+  app: ulzahk-platzi-store-backend
+  on:
+    repo: Ulzahk/platzi-store-backend
